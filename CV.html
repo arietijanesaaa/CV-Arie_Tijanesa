@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Lamaran Kekasih - [Nama Kamu]</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0e6f6, #e6f6ff);
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1, h2 {
+            color: #8a2be2; /* Ungu */
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            border-bottom: 2px solid #8a2be2;
+            padding-bottom: 10px;
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+        .header-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #ff69b4; /* Pink */
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .headline {
+            font-size: 1.2em;
+            color: #666;
+            margin-top: -10px;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section ul li {
+            background-color: #f9f9f9;
+            margin-bottom: 10px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .section ul li:hover {
+            transform: translateX(5px);
+        }
+
+        .skill-bar-container {
+            background-color: #eee;
+            border-radius: 5px;
+            height: 15px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+
+        .skill-bar {
+            height: 100%;
+            background-color: #ff69b4;
+            width: 0%; /* Dimulai dari 0 untuk animasi */
+            border-radius: 5px;
+            transition: width 1s ease-out;
+        }
+
+        .button-group {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: relative; /* Untuk posisi tombol yang melarikan diri */
+            min-height: 80px; /* Agar ada ruang untuk tombol lari */
+        }
+
+        .btn {
+            background-color: #8a2be2; /* Ungu */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            background-color: #a052ee; /* Ungu lebih terang */
+            transform: translateY(-3px);
+        }
+
+        #btnPikirDulu {
+            background-color: #ff69b4; /* Pink */
+            position: absolute; /* Penting untuk interaktivitas */
+            left: calc(50% + 70px); /* Posisi awal agar tidak terlalu dekat dengan Terima */
+            top: 0;
+        }
+
+        #btnPikirDulu:hover {
+            background-color: #ff99c4; /* Pink lebih terang */
+            animation: shake 0.5s infinite;
+        }
+
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+
+        .testimonial {
+            background-color: #fce4ec; /* Light pink */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            font-style: italic;
+            color: #555;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .testimonial span {
+            display: block;
+            margin-top: 10px;
+            font-weight: 600;
+            color: #8a2be2;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup-content {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            animation: zoomIn 0.5s ease-out;
+            max-width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .popup-content h3 {
+            color: #8a2be2;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .popup-content p {
+            font-size: 1.2em;
+            margin-bottom: 25px;
+        }
+
+        .fireworks-gif {
+            width: 150px; /* Sesuaikan ukuran GIF */
+            height: 150px;
+            margin-bottom: 20px;
+        }
+
+        .close-btn {
+            background-color: #ff69b4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background-color: #ff99c4;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
+            .button-group {
+                flex-direction: column;
+                gap: 15px;
+                min-height: 150px; /* Lebih banyak ruang untuk tombol lari */
+            }
+            .btn {
+                width: 80%;
+                margin: 0 auto;
+                font-size: 1em;
+            }
+            #btnPikirDulu {
+                position: relative; /* Kembali ke posisi normal di mobile */
+                left: unset;
+                top: unset;
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-profile">
+            <img src="aku.jpeg" alt="Foto Profil [Nama Kamu]" class="profile-pic">
+            <h1>Arie Tijanesa</h1>
+            <p class="headline">Full-time Protector | Chief of Happiness | Single-Person Specialist</p>
+        </div>
+
+        <div class="section">
+            <h2>Tentang Saya</h2>
+            <p>Individu yang sangat termotivasi dengan pengalaman 24 tahun bernapas. Memiliki keahlian khusus dalam mendengarkan cerita seharian tanpa bosan dan memberikan pelukan hangat saat dibutuhkan.</p>
+        </div>
+
+        <div class="section">
+            <h2>Keahlian Utama</h2>
+            <ul>
+                <li>
+                    Penyabar: 95% (5% hilang kalau lapar)
+                    <div class="skill-bar-container"><div class="skill-bar" data-skill="95"></div></div>
+                </li>
+                <li>
+                    Navigasi Maps: 80% (Siap mengantar ke mana saja tanpa tersesat)
+                    <div class="skill-bar-container"><div class="skill-bar" data-skill="80"></div></div>
+                </li>
+                <li>
+                    Quality Time: 100%
+                    <div class="skill-bar-container"><div class="skill-bar" data-skill="100"></div></div>
+                </li>
+                <li>
+                    Soft Boy: 100%
+                    <div class="skill-bar-container"><div class="skill-bar" data-skill="100"></div></div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Pengalaman</h2>
+            <ul>
+                <li>
+                    <strong>Antar-Jemput Kerja (Januari 2026)</strong>
+                    <p>Siap mengantar dan menjemput dengan aman dan nyaman. Siap untuk antar jemput kerja selanjutnya.</p>
+                </li>
+				<li>
+                    <strong>Partner Makan Siang (Januari 2026)</strong>
+                    <p>Berhasil mengajak makan siang bersama. Siap untuk petualangan kuliner selanjutnya.</p>
+                </li>
+				<li>
+                    <strong>Partner Makan Malam - Bersama Keluarga (Januari 2026)</strong>
+                    <p>Sempat grogi dan nervous saat berangkat, tapi setelah selesai makan dan saat pulang agak tenang.</p>
+                </li>
+                <li>
+                    <strong>Partner Bicara Sebelum Tidur (October 2025 - Sekarang)</strong>
+                    <p>Mampu mencoba menjaga pembicaraan tetap seru sampai salah satu tertidur. Selalu siap sedia mendengarkan.</p>
+                </li>
+				<li>
+                    <strong>Setia (October 2025 - Sekarang)</strong>
+                    <p>I still love only one person.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Pendidikan</h2>
+            <ul>
+                <li>
+                    <strong>S1 - Teknik Memahami Kode Wanita</strong>
+                    <p>Lulus dengan predikat Cum Laude meskipun suka salah ngomong T_T, dari Universitas Maafin Aku Ya (2025).</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="testimonial">
+            <p>"Arie itu kalau sudah sayang sama satu orang, perhatiannya nggak akan ke mana-mana. Dia bukan tipe yang suka drama, hatinya lempeng dan positive vibes terus. Dia bakal jagain kamu sebaik dia jagain Ibu selama ini."</p>
+            <span>— Ibunya Arie</span>
+        </div>
+
+        <div class="button-group">
+            <button id="btnTerima" class="btn">TERIMA</button>
+            <button id="btnPikirDulu" class="btn">PIKIR-PIKIR DULU</button>
+        </div>
+
+        <p style="margin-top: 30px; color: #666;">
+            Besar harapan saya untuk dapat lanjut ke tahap <strong>Berpacaran</strong>. Dan saya bersedia memberikan masa percobaan seumur hidup.
+        </p>
+    </div>
+
+    <div id="popupTerima" class="popup">
+        <div class="popup-content">
+            <h3>YEAYYYY!</h3>
+            <img src="giphy.webp" alt="Fireworks" class="fireworks-gif">
+            <p>Terima kasih sudah menerimaku! Mari mulai petualangan kita!</p>
+            <button class="close-btn" onclick="closePopup()">Okayy!</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btnPikirDulu = document.getElementById('btnPikirDulu');
+            const btnTerima = document.getElementById('btnTerima');
+            const popupTerima = document.getElementById('popupTerima');
+            const container = document.querySelector('.container');
+
+            // Animasi skill bar
+            document.querySelectorAll('.skill-bar').forEach(bar => {
+                const skillLevel = bar.dataset.skill;
+                setTimeout(() => {
+                    bar.style.width = skillLevel + '%';
+                }, 500); // Delay untuk animasi
+            });
+
+            // Logika tombol "Pikir-Pikir Dulu" yang melarikan diri
+            btnPikirDulu.addEventListener('mouseover', () => {
+                const containerRect = container.getBoundingClientRect();
+                const btnRect = btnPikirDulu.getBoundingClientRect();
+
+                // Generate random position within the container bounds
+                const newX = Math.random() * (containerRect.width - btnRect.width);
+                const newY = Math.random() * (containerRect.height - btnRect.height);
+
+                // Ensure it stays within the general button-group area
+                const parentGroup = btnPikirDulu.parentElement;
+                const parentGroupRect = parentGroup.getBoundingClientRect();
+
+                let targetX = Math.random() * (parentGroupRect.width - btnRect.width);
+                let targetY = Math.random() * (parentGroupRect.height - btnRect.height);
+
+                // Add some padding from edges
+                const padding = 20;
+                if (targetX < padding) targetX = padding;
+                if (targetY < padding) targetY = padding;
+                if (targetX > parentGroupRect.width - btnRect.width - padding) targetX = parentGroupRect.width - btnRect.width - padding;
+                if (targetY > parentGroupRect.height - btnRect.height - padding) targetY = parentGroupRect.height - btnRect.height - padding;
+
+                btnPikirDulu.style.transition = 'top 0.3s ease-out, left 0.3s ease-out, background-color 0.3s ease';
+                btnPikirDulu.style.left = `${targetX}px`;
+                btnPikirDulu.style.top = `${targetY}px`;
+            });
+
+            // Reset posisi tombol "Pikir-Pikir Dulu" jika mouse menjauh
+            // (Opsional, tergantung kamu mau tombolnya tetap di tempat baru atau kembali)
+            /*
+            btnPikirDulu.addEventListener('mouseleave', () => {
+                btnPikirDulu.style.transition = 'top 0.5s ease-out, left 0.5s ease-out';
+                btnPikirDulu.style.left = 'calc(50% + 70px)'; // Kembali ke posisi awal
+                btnPikirDulu.style.top = '0';
+            });
+            */
+
+            // Logika tombol "Terima"
+            btnTerima.addEventListener('click', () => {
+                popupTerima.style.display = 'flex';
+                // Opsional: disable scroll body saat popup muncul
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        function closePopup() {
+            document.getElementById('popupTerima').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Re-enable scroll
+        }
+
+    </script>
+</body>
+</html>
